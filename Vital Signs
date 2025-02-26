@@ -1,0 +1,197 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vital Signs Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            text-decoration: underline;
+        }
+        .status {
+            font-size: 1.1em;
+            margin: 15px 0;
+        }
+        .bar-container {
+            width: 80%;
+            background-color: #222;
+            border-radius: 10px;
+            margin: 10px auto;
+            overflow: hidden;
+            height: 25px;
+            position: relative;
+        }
+        .bar {
+            height: 100%;
+            text-align: center;
+            line-height: 25px;
+            color: #000;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+        }
+    </style>
+    <script>
+        const vitalSigns = {
+            happiness: 35,
+            vision: 100,
+            balance: 100,
+            brain: 85,
+            awareness: 85,
+            compassion: 90,
+            alertness: 90,
+            alcohol: 0,
+            horny: 45,
+            energy: 55,
+            stress: 45,
+            confidence: 65,
+            caffeine: 15,
+            gaming: 50,
+            dancing: 10,
+            luck: 25,
+            jokes: 90,
+            submissiveness: 60
+        };
+
+        function setBarLevel(barId, level) {
+            const bar = document.getElementById(barId);
+            const widthPercentage = (level / 100) * 100;
+            bar.style.width = widthPercentage + "%";
+
+            if (level > 7) {
+                bar.style.backgroundColor = "#0f0";
+            } else if (level > 4) {
+                bar.style.backgroundColor = "#ff0";
+            } else {
+                bar.style.backgroundColor = "#f00";
+            }
+        }
+
+        function initializeReport() {
+            for (const sign in vitalSigns) {
+                const level = vitalSigns[sign];
+                const barId = `${sign}-bar`;
+                const barLabel = document.getElementById(`${sign}-label`);
+                setBarLevel(barId, level);
+                barLabel.textContent = `${capitalizeFirstLetter(sign)}: ${level}%`;
+            }
+        }
+
+        function capitalizeFirstLetter(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        window.onload = initializeReport;
+    </script>
+</head>
+<body>
+    <h1>Vital Signs Report</h1>
+    
+        <div class="status" id="happiness-label">Happiness: 10%</div>
+    <div class="bar-container">
+        <div class="bar" id="happiness-bar"></div>
+    </div> 
+        
+    
+    <div class="status" id="vision-label">Vision: 100%</div>
+    <div class="bar-container">
+        <div class="bar" id="vision-bar"></div>
+
+    </div>
+
+    <div class="status" id="balance-label">Balance: 100%</div>
+    <div class="bar-container">
+        <div class="bar" id="balance-bar"></div>
+    </div>
+
+    <div class="status" id="brain-label">Brain Functionality: 85%</div>
+    <div class="bar-container">
+        <div class="bar" id="brain-bar"></div>
+    </div>
+
+    <div class="status" id="awareness-label">Awareness: 85%</div>
+    <div class="bar-container">
+        <div class="bar" id="awareness-bar"></div>
+    </div>
+
+    <div class="status" id="compassion-label">Compassion: 90%</div>
+    <div class="bar-container">
+        <div class="bar" id="compassion-bar"></div>
+    </div>
+
+    <div class="status" id="alertness-label">Alertness: 90%</div>
+    <div class="bar-container">
+        <div class="bar" id="alertness-bar"></div>
+    </div>
+
+    <div class="status" id="alcohol-label">Alcohol Level: 0%</div>
+    <div class="bar-container">
+        <div class="bar" id="alcohol-bar"></div>
+    </div>
+
+    <div class="status" id="horny-label">Horny Mood: 75%</div>
+    <div class="bar-container">
+        <div class="bar" id="horny-bar"></div>
+    </div>
+
+    <div class="status" id="energy-label">Energy: 75%</div>
+    <div class="bar-container">
+        <div class="bar" id="energy-bar"></div>
+    </div>
+
+    <div class="status" id="stress-label">Stress: 5%</div>
+    <div class="bar-container">
+        <div class="bar" id="stress-bar"></div>
+    </div>
+
+    <div class="status" id="confidence-label">Confidence: 65%</div>
+    <div class="bar-container">
+        <div class="bar" id="confidence-bar"></div>
+    </div>
+
+    <div class="status" id="caffeine-label">Caffeine Level: 15%</div>
+    <div class="bar-container">
+        <div class="bar" id="caffeine-bar"></div>
+    </div>
+
+    <div class="status" id="gaming-label">Gaming Skill: 50%</div>
+    <div class="bar-container">
+        <div class="bar" id="gaming-bar"></div>
+    </div>
+
+    <div class="status" id="dancing-label">Dancing Ability: 10%</div>
+    <div class="bar-container">
+        <div class="bar" id="dancing-bar"></div>
+    </div>
+
+    <div class="status" id="luck-label">Luck Level: 25%</div>
+    <div class="bar-container">
+        <div class="bar" id="luck-bar"></div>
+    </div>
+
+    <div class="status" id="jokes-label">Joke Quality: 90%</div>
+    <div class="bar-container">
+        <div class="bar" id="jokes-bar"></div>
+    </div>
+
+    <div class="status" id="submissiveness-label">Submissiveness: 60%</div>
+    <div class="bar-container">
+        <div class="bar" id="submissiveness-bar"></div>
+    </div>
+
+    <h2>--- REPORT ENDED ---</h2>
+    <p>This report will be updated when I feel like it's necessary or when I have time. It will not be updated every second!</p>
+
+</body>
+</html>
